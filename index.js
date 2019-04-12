@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
     res.render('index.ejs', {
         title: 'Index',
         content: msg,
-        link: { href: '/other', text: '※別のページに移動' }
+        link: { href: '/other', text: '別のページに移動' },
+        link1: { href: '/other1', text: '別1のページに移動' }
     });
 })
 
@@ -27,7 +28,21 @@ app.get("/other", (req, res) => {
     res.render('index.ejs', {
         title: 'other',
         content: msg,
-        link: { href: '/', text: '※トップに戻る' }
+        link: { href: '/', text: '※トップに戻る' },
+        link1: { href: '/other1', text: '別1のページに移動' }
+
+    });
+});
+
+//※other1ページ
+app.get("/other1", (req, res) => {
+    var msg = 'This is Other1 Page!<br>' + 'これは、用意された別のページです。';
+    res.render('index.ejs', {
+        title: 'other1',
+        content: msg,
+        link: { href: '/', text: '※トップに戻る' },
+        link1: { href: '/other', text: '別のページに移動' }
+
     });
 });
 
